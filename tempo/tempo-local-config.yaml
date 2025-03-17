@@ -49,9 +49,9 @@ storage:
     block:
       bloom_filter_false_positive: .05
     wal:
-      path: /tmp/tempo/wal
+      path: ./tempo/data
     local:
-      path: /tmp/tempo/blocks
+      path: ./tempo/data/blocks
     pool:
       max_workers: 100
       queue_depth: 10000
