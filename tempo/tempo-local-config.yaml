@@ -38,7 +38,7 @@ metrics_generator:
       source: tempo
       cluster: podman
   storage:
-    path: /tmp/tempo/generator/wal
+    path: ./tempo/data/generator/wal
     remote_write:
       - url: http://localhost:9009/api/v1/write
         send_exemplars: true
