@@ -38,7 +38,7 @@ metrics_generator:
       source: tempo
       cluster: podman
   storage:
-    path: ./tempo/data/generator/wal
+    path: /tmp/tempo/generator/wal
     remote_write:
       - url: http://localhost:9009/api/v1/write
         send_exemplars: true
@@ -49,12 +49,14 @@ storage:
     block:
       bloom_filter_false_positive: .05
     wal:
-      path: ./tempo/data
+      path: /tmp/tempo/wal
     local:
-      path: ./tempo/data/blocks
+      path: /tmp/tempo/blocks
     pool:
       max_workers: 100
       queue_depth: 10000
 
 overrides:
-  metrics_generator_processors: [service-graphs, span-metrics]
+  defaults:
+    metrics_generator:
+      processors: [service-graphs, span-metrics]
