@@ -5,6 +5,7 @@ metadata:
   labels:
     app: grafana-stack
 spec:
+  network: mynetwork
   replicas: 1
   selector:
     matchLabels:
